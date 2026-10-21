@@ -33,7 +33,7 @@ class FacturacionTests(TestCase):
         self.assertContains(respuesta, "Cliente Factura")
         self.assertContains(respuesta, "999")
         self.assertContains(respuesta, "Cemento")
-        self.assertContains(respuesta, "97.00")
+        self.assertContains(respuesta, "97,00")
 
     def test_emitir_factura_calcula_total_y_descuenta_stock(self):
         respuesta = self.client.post(
