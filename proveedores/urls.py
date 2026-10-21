@@ -7,5 +7,5 @@ app_name = "proveedores"
 
 urlpatterns = [
     path("", views.inicio, name="inicio"),
-    # Agrega aquí tus rutas.
+    path("crear/", views.crear, name="crear"),
 ]
