@@ -7,7 +7,14 @@ from .models import Producto
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ["codigo", "nombre", "precio", "stock", "stock_minimo"]
+        fields = [
+            "codigo",
+            "nombre",
+            "precio",
+            "stock",
+            "stock_minimo",
+            "imagen",
+        ]
         widgets = {
             "codigo": forms.TextInput(attrs={
                 "class": "form-control",
@@ -30,10 +37,16 @@ class ProductoForm(forms.ModelForm):
                 "class": "form-control",
                 "min": "0",
             }),
+            "imagen": forms.ClearableFileInput(attrs={
+                "class": "form-control",
+                "accept": "image/*",
+            }),
         }
 
     def clean_precio(self):
         precio = self.cleaned_data["precio"]
         if precio <= 0:
-            raise forms.ValidationError("El precio debe ser mayor que 0.")
+            raise forms.ValidationError(
+                "El precio debe ser mayor que 0."
+            )
         return precio

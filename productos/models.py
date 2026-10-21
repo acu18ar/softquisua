@@ -8,9 +8,18 @@ class Producto(models.Model):
     precio = models.DecimalField("precio (Bs)", max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
 
+    imagen = models.ImageField(
+    upload_to="productos/",
+    blank=True,
+    null=True
+)
+
     # Campos nuevos solicitados en el backlog.
     codigo = models.CharField(max_length=50, blank=True, default="")
     stock_minimo = models.PositiveIntegerField(default=5)
+
+
+
 
     class Meta:
         ordering = ["nombre"]

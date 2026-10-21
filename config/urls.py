@@ -7,6 +7,8 @@ Cada módulo ya tiene su prefijo. Tus rutas nuevas van en TU archivo
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -23,3 +25,6 @@ urlpatterns = [
 admin.site.site_header = "SoftQuijarro S.R.L. — Administración"
 admin.site.site_title = "SoftQuijarro"
 admin.site.index_title = "Panel de administración"
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
