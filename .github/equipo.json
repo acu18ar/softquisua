@@ -3,9 +3,9 @@
   "docente": "acu18ar",
   "estudiantes": {
     "USUARIO_CLIENTES": ["clientes"],
-    "USUARIO_PRODUCTOS": ["productos"],
-    "USUARIO_FACTURACION": ["facturacion"],
-    "USUARIO_PROVEEDORES": ["proveedores"],
+    "USUARIO_PRODUCTOS": ["michael22"],
+    "USUARIO_FACTURACION": ["dilan17032005"],
+    "USUARIO_PROVEEDORES": ["alejandra_dza"],
     "USUARIO_REPORTES": ["reportes"]
   }
 }
