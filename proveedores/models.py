@@ -6,13 +6,17 @@ class Proveedor(models.Model):
     nombre = models.CharField("nombre o razón social", max_length=150)
     telefono = models.CharField("teléfono", max_length=30, blank=True)
 
-    # ── TUS CAMPOS NUEVOS VAN AQUÍ ──────────────────────────────────────────
-    # Regla: todo campo nuevo lleva blank=True, null=True o un default.
-    # La relación con productos la defines TÚ, aquí, sin tocar el módulo
-    # Productos. Pista:
-    #   productos = models.ManyToManyField("productos.Producto", blank=True,
-    #                                      related_name="proveedores")
+        # Nuevos datos del proveedor.
+    nit = models.CharField("NIT", max_length=20, blank=True, default="")
+    correo = models.EmailField("correo electrónico", blank=True, default="")
 
+    # Relación con los productos que suministra.
+    productos = models.ManyToManyField(
+        "productos.Producto",
+        blank=True,
+        related_name="proveedores",
+        verbose_name="productos que suministra",
+    )
     class Meta:
         ordering = ["nombre"]
         verbose_name = "proveedor"
